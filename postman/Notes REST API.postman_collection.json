@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "fba94d3b-38f1-46c9-9fbe-ff078b471500",
+    "name": "Notes REST API",
+    "description": "Requests for the local Notes REST API. Start the server with npm start before sending requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "noteId",
+      "value": "paste-note-id-here"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health check",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "List notes",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/notes"
+      }
+    },
+    {
+      "name": "Search notes",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/notes?q=shopping"
+      }
+    },
+    {
+      "name": "Create note",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"My first note\",\n  \"content\": \"Hello from Postman!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/notes"
+      }
+    },
+    {
+      "name": "Get note by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/notes/{{noteId}}"
+      }
+    },
+    {
+      "name": "Update note",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Updated from Postman!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/notes/{{noteId}}"
+      }
+    },
+    {
+      "name": "Delete note",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/notes/{{noteId}}"
+      }
+    }
+  ]
+}
