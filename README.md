@@ -1,6 +1,6 @@
-# Notes REST API
+# Connect the Notes API to MongoDB using Mongoose
 
-A REST API for creating and managing notes, built with Node.js and Express.
+A REST API for creating and managing notes with Node.js, Express, Mongoose, and MongoDB. Notes are stored in MongoDB for persistence across server restarts.
 
 ## Requirements
 
